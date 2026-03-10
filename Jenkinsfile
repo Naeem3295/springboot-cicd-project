@@ -74,7 +74,9 @@ pipeline {
                 echo "========================================"
                 echo "  Stage 2: Building Spring Boot App"
                 echo "========================================"
-                sh 'mvn clean compile -B'
+                withMaven(maven: 'maven') {
+    sh 'mvn clean compile -B'
+}
             }
         }
 
@@ -87,7 +89,9 @@ pipeline {
                 echo "========================================"
                 echo "  Stage 3: Running Unit Tests"
                 echo "========================================"
-                sh 'mvn test -B'
+               withMaven(maven: 'maven') {
+    sh 'mvn test -B'
+}
             }
             post {
                 always {
@@ -110,7 +114,9 @@ pipeline {
                 echo "========================================"
                 echo "  Stage 4: Packaging Application"
                 echo "========================================"
-                sh 'mvn package -DskipTests -B'
+                withMaven(maven: 'maven') {
+    sh 'mvn package -DskipTests -B'
+}
                 sh 'ls -lh target/*.jar'
                 archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
             }
