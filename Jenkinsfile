@@ -6,8 +6,8 @@ pipeline {
     // =============================================
     environment {
         // Docker Hub Configuration
-        DOCKER_HUB_USERNAME = 'your-dockerhub-username'      // ← আপনার Docker Hub username দিন
-        DOCKER_HUB_CREDENTIALS = 'dockerhub-credentials'     // ← Jenkins credential ID
+        DOCKER_HUB_USERNAME = 'naeem3295'      // ← আপনার Docker Hub username দিন
+        DOCKER_HUB_CREDENTIALS = 'dockerhub-Final'     // ← Jenkins credential ID
         IMAGE_NAME = "${DOCKER_HUB_USERNAME}/springboot-cicd-app"
         IMAGE_TAG = "${BUILD_NUMBER}"
         LATEST_TAG = "latest"
@@ -17,8 +17,8 @@ pipeline {
         APP_PORT = "8080"
 
         // Notification Configuration
-        SLACK_CHANNEL = '#devops-notifications'              // ← আপনার Slack channel
-        EMAIL_RECIPIENT = 'your-email@gmail.com'             // ← আপনার email
+        SLACK_CHANNEL = '#all-jenkins-cicd'              // ← আপনার Slack channel
+        EMAIL_RECIPIENT = 'abun1347@gmail.com'             // ← আপনার email
     }
 
     // =============================================
