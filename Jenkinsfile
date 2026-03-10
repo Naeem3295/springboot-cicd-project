@@ -17,7 +17,7 @@ pipeline {
         APP_PORT = "8080"
 
         // Notification Configuration
-        SLACK_CHANNEL = '#all-jenkins-cicd'              // ← আপনার Slack channel
+        SLACK_CHANNEL = 'all-jenkins-cicd'              // ← আপনার Slack channel
         EMAIL_RECIPIENT = 'abun1347@gmail.com'             // ← আপনার email
     }
 
