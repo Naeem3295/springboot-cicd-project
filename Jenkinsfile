@@ -248,20 +248,6 @@ pipeline {
                 mimeType: 'text/html'
             )
 
-            // Slack Notification - Success
-            slackSend(
-                channel: "${SLACK_CHANNEL}",
-                color: 'good',
-                message: """
-                ✅ *BUILD SUCCESS*
-                *Job:* ${JOB_NAME}
-                *Build:* #${BUILD_NUMBER}
-                *Environment:* ${params.DEPLOY_ENV}
-                *Image:* ${IMAGE_NAME}:${IMAGE_TAG}
-                *Duration:* ${currentBuild.durationString}
-                *URL:* ${BUILD_URL}
-                """
-            )
         }
 
         // ─── FAILURE ───
@@ -289,18 +275,7 @@ pipeline {
                 mimeType: 'text/html'
             )
 
-            // Slack Notification - Failure
-            slackSend(
-                channel: "${SLACK_CHANNEL}",
-                color: 'danger',
-                message: """
-                ❌ *BUILD FAILED*
-                *Job:* ${JOB_NAME}
-                *Build:* #${BUILD_NUMBER}
-                *URL:* ${BUILD_URL}
-                Please check console output!
-                """
-            )
+           
         }
 
         // ─── ALWAYS ───
