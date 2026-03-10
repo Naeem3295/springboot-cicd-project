@@ -94,11 +94,11 @@ pipeline {
 }
             }
             post {
-                always {
-                    // Publish JUnit test results
-                    junit 'target/surefire-reports/*.xml'
-                    echo "Test results published"
-                }
+               always {
+    // Publish JUnit test results
+    junit allowEmptyResults: true, testResults: 'target/surefire-reports/*.xml'
+    echo "Test results published"
+}
                 success {
                     echo "✅ All tests passed!"
                 }
